@@ -43,3 +43,52 @@ input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px rgba(56,189,248,.12
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}.hero .preview{transform:none}}
 
+/* Responsive app shell and touch-first layouts. Desktop geometry above remains unchanged. */
+.mobile-dashbar,.mobile-drawer{display:none}
+@media(max-width:900px){
+  html,body{overflow-x:hidden}
+  .dashboard{min-width:0}
+  .dashmain{min-width:0;width:100%;padding:24px clamp(18px,4vw,34px) 48px}
+  .dashheader,.paneltitle,.activity,.riskitem header{min-width:0}
+  .dashheader h1{font-size:clamp(34px,7vw,52px);max-width:15ch}
+  .dashheader p,.sectionintro,.lede{max-width:62ch}
+  .dashheader>.btn{width:max-content;max-width:100%}
+  .card,.riskitem,.contract,.vcard,.step{min-width:0;overflow-wrap:anywhere}
+  .bars{min-width:0}
+  .bar{min-width:0}
+  .analysis-layout{gap:18px}
+  .contract{padding:20px}
+  .riskitem{padding:18px}
+  .compare{gap:14px}
+  .compare .card{min-height:0}
+  .textarea{min-height:150px;resize:vertical}
+  .btn{min-height:44px}
+  .sideitem{min-height:46px}
+  .mobile-dashbar{display:flex;position:sticky;top:0;z-index:20;height:66px;padding:12px 18px;align-items:center;justify-content:space-between;background:rgba(9,13,24,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+  .mobile-dashbar .brand{font-size:15px}
+  .menu-button{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text);font-size:22px;line-height:1}
+  .menu-button:active{transform:scale(.96)}
+  .mobile-drawer{display:block;position:fixed;inset:66px 0 0;z-index:19;pointer-events:none;background:rgba(3,6,13,.58);opacity:0;transition:opacity .25s ease}
+  .mobile-drawer.open{pointer-events:auto;opacity:1}
+  .mobile-drawer-inner{width:min(86vw,340px);height:100%;padding:20px 14px;background:var(--panel);transform:translateX(-100%);transition:transform .3s cubic-bezier(.22,1,.36,1);box-shadow:18px 0 50px rgba(0,0,0,.28)}
+  .mobile-drawer.open .mobile-drawer-inner{transform:translateX(0)}
+  .mobile-drawer-inner p{margin:0 12px 10px;color:var(--muted);font-size:12px}
+  .mobile-drawer .sideitem{width:100%;text-align:left}
+}
+@media(max-width:767px){
+  .container{padding:0 16px}
+  .nav{height:68px}.brand{gap:9px}.brand span{font-size:14px}.mark{width:30px;height:30px}
+  .navlinks{display:none}.navactions{gap:7px}.navactions .btn{min-height:42px;padding:9px 11px}.navactions .btn:first-child{display:none}
+  .hero{grid-template-columns:1fr;gap:34px;padding:54px 0 56px}.hero h1{font-size:clamp(42px,12vw,60px);max-width:10ch}.hero .lede{font-size:16px;line-height:1.55}.heroactions{display:flex;flex-direction:column;align-items:stretch;gap:10px}.heroactions .btn{width:100%;text-align:center}.preview{width:100%;min-width:0}.analysis-card{width:100%;transform:none}.previewgrid{grid-template-columns:1fr}.sidepanel{display:grid;grid-template-columns:1fr 1fr;gap:10px}.sidepanel .mini:last-child{grid-column:1/-1}
+  .section{padding:58px 0}.sectionhead{display:flex;flex-direction:column;gap:14px}.sectionhead h2{font-size:clamp(30px,9vw,46px)}.grid3,.workflow,.villain-grid{grid-template-columns:1fr}.card{padding:20px}.v-art{min-height:120px}.cta{padding:58px 0}.cta .card{padding:24px}.footer{gap:12px;align-items:flex-start}
+  .dashmain{padding:20px 16px 40px}.dashheader{gap:16px;margin-bottom:22px}.dashheader h1{font-size:clamp(32px,9vw,46px);line-height:1.02}.dashheader>.btn{width:100%;justify-content:center}.kpis{grid-template-columns:1fr 1fr;gap:10px}.kpi{padding:16px}.kpi .value{font-size:34px}.kpi .label{font-size:12px}.activity{gap:10px;padding:13px 0}.activity b{font-size:13px}.activity p{font-size:11px}
+  .formgrid,.settings-grid,.compare{grid-template-columns:1fr}.upload{min-height:230px;padding:22px 14px}.upload strong{max-width:100%;overflow-wrap:anywhere;text-align:center}.formgrid .card{padding:18px}.field label{font-size:13px}.select,.textarea,input{min-height:46px}.textarea{padding:13px}.formgrid .card>div:last-child{flex-direction:column;align-items:stretch}.formgrid .card>div:last-child .btn{width:100%}
+  .analysis-layout{grid-template-columns:1fr}.contract{font-size:14px;line-height:1.65}.contract h3{font-size:14px}.risklist{min-width:0}.segmented{width:100%;display:grid;grid-template-columns:repeat(3,1fr)}.segmented button{min-height:44px;padding:8px 4px}.riskitem header{align-items:flex-start;gap:8px}.riskitem header h4{font-size:16px}.riskitem .pill{white-space:nowrap}
+  .dashgrid{grid-template-columns:1fr}.gaugepanel{display:flex;flex-direction:column;align-items:center;text-align:center}.biggauge{width:min(62vw,210px);height:min(62vw,210px)}.villain-grid{grid-template-columns:1fr}.vcard{padding:18px}.detail{grid-template-columns:1fr 1fr;gap:10px}.detail div{padding:10px}.detail b{font-size:12px}.detail span{font-size:11px}
+  .compare .card{padding:18px}.compare pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}.compare .btn{width:100%}
+  .email-grid{grid-template-columns:1fr}.email-grid .card{padding:18px}.email-actions{display:flex;flex-direction:column;align-items:stretch}.email-actions .btn{width:100%}
+}
+@media(max-width:380px){.container{padding:0 14px}.kpis{grid-template-columns:1fr}.hero h1{font-size:42px}.sidepanel{grid-template-columns:1fr}.sidepanel .mini:last-child{grid-column:auto}.detail{grid-template-columns:1fr}.dashmain{padding-inline:14px}}
+@media(min-width:768px) and (max-width:1023px){.hero{gap:34px}.container{padding-inline:24px}.dashside{width:220px}.dashmain{padding-inline:26px}.kpis{grid-template-columns:repeat(2,1fr)}.formgrid{grid-template-columns:1fr 1fr}.villain-grid{grid-template-columns:repeat(2,1fr)}}
+@media(hover:none){.card:hover,.vcard:hover{transform:none;box-shadow:none}.sideitem:hover{transform:none}.vcard:hover .v-art{animation:none}.btn:hover{transform:none}}
+
